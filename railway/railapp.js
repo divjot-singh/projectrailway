@@ -1,0 +1,45 @@
+var modd=angular.module('railapp',['ngRoute','railservice']);
+modd.config(function($routeProvider)
+{
+	$routeProvider
+		.when("/",{
+			redirectTo:'/train'
+		})
+		.when('/train',{
+			templateUrl:'train.html',
+			controller:'TrainCtrl'
+		})
+		.when('/reservation',{
+			templateUrl:'reservation.html',
+			controller:'ReservationCtrl'
+		})
+});
+modd.controller('RailCtrl',function($scope,$routeParams){
+	$scope.vis=false;
+	$scope.setActive=function(type)
+	{
+		$scope.trainActive='';
+		$scope.reservationActive='';
+		$scope[type+'Active']='active';
+	}
+});
+modd.controller('TrainCtrl',function($scope,Train,Reservation,$http){
+	$scope.setActive('train');
+	$http.get('trains.json').success(function(data,status){
+			$scope.trains=data;
+			//console.log($scope.trains);
+		});
+		//$scope.trains();
+		//console.log($scope.trains());
+	//console.log($scope.train);
+	$scope.reserve=function(name,source,destination,code,pnr,price)
+	{
+		Reservation.add(name,source,destination,code,pnr,price);
+		$scope.vis=true;
+		console.log($scope.vis);
+	}
+});
+modd.controller('ReservationCtrl',function($scope,Reservation,Train){
+	$scope.setActive('reservation');
+	$scope.reservations=Reservation.view();
+});

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html  ng-app='railapp'>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.5.7/angular-resource.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<style type="text/css">
+		h1
+		{
+			color:white;
+		}
+	</style>
+	<script type="text/javascript" src="railapp.js"></script>
+	<script type="text/javascript" src="railservice.js"></script>
+</head>
+<body ng-controller='RailCtrl'>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header" >
+				<h1>Railway Reservation Portal</h1>
+			</div>	
+		</div>
+		<ul class="nav nav-pills">
+				<li ng-class="trainActive">
+					<a href="#/train" >Trains</a>
+				</li>
+				<li ng-class="reservationActive">
+					<a href="#/reservation">Reservations</a>
+				</li>
+		</ul>
+	</nav>
+			
+	<div ng-view></div>
+</body>
+</html>

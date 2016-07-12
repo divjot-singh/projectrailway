@@ -1,0 +1,29 @@
+<h3>Your Reservations</h3>
+<div class="controls controls-row">
+	<input type="text" class="input-small" placeholder="Origin" ng-model="reserve.source"/>
+	<input type="text" class="input-small" placeholder="Destination" ng-model="reserve.destination"/>
+</div>
+<table ng-show="reservations.length" class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Source</th>
+			<th>Destinations</th>
+			<th>Code</th>
+			<th>PNR</th>
+			<th>Price</th>
+			<th>Quantity</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="reservation in reservations">
+			<td>{{reservation.name}}</td>
+			<td>{{reservation.source}}</td>
+			<td>{{reservation.destination}}</td>
+			<td>{{reservation.code}}</td>
+			<td>{{reservation.PNR}}</td>
+			<td>{{reservation.price}}</td>
+			<td>{{reservation.quantity}}</td>
+		</tr>
+	</tbody>
+</table>
